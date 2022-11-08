@@ -1,6 +1,7 @@
 import express from "express";
 import { connectDB } from "./src/config/connectDB.js";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 
 //Routes
@@ -14,6 +15,7 @@ import staffRouter from "./src/routes/staff.js";
 import bannerRouter from "./src/routes/banner.js";
 
 const app = express();
+app.use(cors());
 connectDB();
 
 app.use(express.json());
