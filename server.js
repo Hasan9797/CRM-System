@@ -3,6 +3,10 @@ import { connectDB } from "./src/config/connectDB.js";
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
+connectDB();
+
+const app = express();
+app.use(cors());
 
 //Routes
 import categoryRouter from "./src/routes/categorys.js";
@@ -13,10 +17,6 @@ import kirimRouter from "./src/routes/kirim.js";
 import chiqimRouter from "./src/routes/chiqim.js";
 import staffRouter from "./src/routes/staff.js";
 import bannerRouter from "./src/routes/banner.js";
-
-const app = express();
-app.use(cors());
-connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
